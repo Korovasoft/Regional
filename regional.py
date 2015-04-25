@@ -18,7 +18,7 @@ state = SEARCHING
 region_name = ""
 region_contents = []
 
-with open(filename) as f:
+with open(argv[1]) as f:
 	for line in f:
 		if (state == SEARCHING):
 			pattern = comment_symbol + " @region (\w+)"
