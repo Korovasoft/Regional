@@ -4,7 +4,7 @@ from sys import argv
 
 comment_symbols = {'cpp': '//', 'py': '#', 'rb': '#', 'tex': '%'}
 
-filename = argv[1]
+filename = argv[1].split("/")[-1]
 basename, extension = filename.split(".")
 comment_symbol = comment_symbols[extension]
 
