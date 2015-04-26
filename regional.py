@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 import re
 from sys import argv
+from optparse import OptionParser
 
 comment_symbols = {'cpp': '//', 'py': '#', 'rb': '#', 'tex': '%'}
 
-filename = argv[1].split("/")[-1]
+usage = "usage: %prog [options] FILE"
+parser = OptionParser(usage=usage)
+parser.add_option("-o", "--output-directory", dest="output_directory", default=".", help="write snippets to DIR", metavar="DIR")
+(options, args) = parser.parse_args()
+
+filepath = args[0]
+filename = filepath.split("/")[-1]
 basename, extension = filename.split(".")
 comment_symbol = comment_symbols[extension]
 
@@ -18,7 +25,7 @@ state = SEARCHING
 region_name = ""
 region_contents = []
 
-with open(argv[1]) as f:
+with open(filepath) as f:
 	for line in f:
 		if (state == SEARCHING):
 			pattern = comment_symbol + " @region (\w+)"
@@ -34,7 +41,8 @@ with open(argv[1]) as f:
 			match = re.search(pattern, line)
 			if (match):
 				# @region WriteRecordedContents
-				with open(region_name + ".snippet." + extension, "w") as g:
+				snippet_path = "%s/%s.snippet.%s" % (options.output_directory, region_name, extension)
+				with open(snippet_path, "w") as g:
 					for snipped_line in region_contents:
 						g.write(snipped_line)
 				state = SEARCHING
