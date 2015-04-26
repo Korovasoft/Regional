@@ -1,5 +1,6 @@
-# Regional
+# Regional 
 Include working code snippets in published documents.
+[![Build Status](https://travis-ci.org/Korovasoft/Regional.svg?branch=master)](https://travis-ci.org/Korovasoft/Regional)
 
 ### Example
 
