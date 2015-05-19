@@ -10,3 +10,7 @@ def extracts_correct_region_test():
 	with open("ReopenExistingClass.snippet.rb") as f:
 		actual_contents = "".join(f.readlines())
 	assert(expected_contents == actual_contents)
+
+def handles_multiple_dots_test():
+	os.system("python regional.py First.Next.Last.cpp")
+	assert(os.path.isfile("MultipleDotsWork.snippet.rb"))
