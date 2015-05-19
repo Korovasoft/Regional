@@ -13,4 +13,4 @@ def extracts_correct_region_test():
 
 def handles_multiple_dots_test():
 	os.system("python regional.py First.Next.Last.cpp")
-	assert(os.path.isfile("MultipleDotsWork.snippet.rb"))
+	assert(os.path.isfile("MultipleDotsWork.snippet.cpp"))

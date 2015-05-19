@@ -15,7 +15,9 @@ for file in args.input:
 
   filepath = file
   filename = filepath.split("/")[-1]
-  basename, extension = filename.split(".")
+  filename_parts = filename.split(".")
+  extension = filename_parts[-1]
+  filename = (".").join(filename_parts[:-1])
   comment_symbol = comment_symbols[extension]
 
 
