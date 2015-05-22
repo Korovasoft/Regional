@@ -3,7 +3,7 @@ import re
 from sys import argv
 from argparse import ArgumentParser
 
-comment_symbols = {'cpp': '//', 'h': '//', 'hpp': '//', 'py': '#', 'rb': '#', 'tex': '%'}
+comment_symbols = {'cpp': '//', 'h': '//', 'hpp': '//', 'py': '#', 'rb': '#', 'tex': '%', 'sh': '#', 'txt': '#', 'yml': '#', 'cmake': '#'}
 
 parser = ArgumentParser()
 parser.add_argument("-o", "--output-directory", dest="output_directory", default=".", help="write snippets to DIR", metavar="DIR")
